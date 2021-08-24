@@ -1,0 +1,28 @@
+{
+  "name": "azos-actions-version-file",
+  "version": "1.0.0",
+  "description": "Github action to create a simple version file based in git release tags and last commit hash",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build src/action.js -o dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Azos-Seguros/azos-actions-version-file.git"
+  },
+  "keywords": [
+    "github",
+    "actions",
+    "version"
+  ],
+  "author": "Eduardo Medeiros Pereira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Azos-Seguros/azos-actions-version-file/issues"
+  },
+  "homepage": "https://github.com/Azos-Seguros/azos-actions-version-file#readme",
+  "dependencies": {
+    "@vercel/ncc": "^0.29.2"
+  }
+}

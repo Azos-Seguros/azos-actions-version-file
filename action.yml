@@ -1,0 +1,12 @@
+name: "Azos Actions - Version File"
+decription: "Github action to create a simple version file based in git release tags and last commit hash"
+author: "Eduardo Medeiros Pereira"
+
+inputs:
+  GITHUB_TOKEN:
+    description: "Github Token"
+    required: true
+
+runs:
+  using: "node14"
+  main: "dist/index.js"
