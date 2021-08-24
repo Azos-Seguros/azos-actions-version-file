@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Azos-Seguros/azos-actions-version-file#readme",
   "dependencies": {
-    "@vercel/ncc": "^0.29.2"
+    "@vercel/ncc": "^0.29.2",
+    "shelljs": "^0.8.4"
   }
 }
