@@ -14,4 +14,4 @@ jobs:
       - name: Create version file
         uses: ./
         with:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
