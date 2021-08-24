@@ -1,9 +1,9 @@
-var shell = require('shelljs');
+var shell = require("shelljs");
 
 async function run(){
 
-    let version = await shell.exec('node --version', {silent:true}).stdout;
-    let hash = await shell.exec('node --version', {silent:true}).stdout;
+    let version = await shell.exec("git tag --sort -v:refname", {silent:true}).stdout;
+    let hash = await shell.exec("git log --oneline | awk 'NR==1{print $1}'", {silent:true}).stdout;
     let fileContent = `${version}:${hash}`;
 
     console.log( `Version: ${fileContent}`)
