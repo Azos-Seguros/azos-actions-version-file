@@ -1,0 +1,17 @@
+name: "Test"
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create version file
+        uses: ./
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
