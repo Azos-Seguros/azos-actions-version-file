@@ -7342,9 +7342,13 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 var shell = __nccwpck_require__(3516);
+//const path = require("path");
+//const fs = require("fs");
 
 async function run(){
 
+    shell.cd(process.env.GITHUB_WORKSPACE);
+    
     let version = await shell.exec("git tag --sort -v:refname", {silent:true}).stdout;
     let hash = await shell.exec("git log --oneline | awk 'NR==1{print $1}'", {silent:true}).stdout;
     let fileContent = `${version}:${hash}`;
