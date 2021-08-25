@@ -1415,9 +1415,9 @@ async function run(){
 
     console.log( `Version: ${fileContent}`)
 
-    await executeCommand(`echo ${fileContent} > version`);
+    await executeCommand("echo",[`${fileContent}`,">","version"]);
 
-    await executeCommand(`cat version`);
+    await executeCommand("cat",["version"]);
 
     await executeCommand("git",["add","version"]);
 
