@@ -1,18 +1,38 @@
-var shell = require("shelljs");
-//const path = require("path");
-//const fs = require("fs");
+const exec = require('@actions/exec');
+
+async function executeCommand(command, args=[]) {
+
+    let myOutput = '';
+    let myError = '';
+
+    const options = {};
+    options.listeners = {
+        stdout: (data) => {
+            myOutput += data.toString();
+        },
+        stderr: (data) => {
+            myError += data.toString();
+        }
+    };
+
+    await exec.exec(command, args, options);
+
+    return myOutput;
+
+}
+
 
 async function run(){
 
-    shell.cd(process.env.GITHUB_WORKSPACE);
-    
-    let version = await shell.exec("git tag --sort -v:refname", {silent:true}).stdout;
-    let hash = await shell.exec("git log --oneline | awk 'NR==1{print $1}'", {silent:true}).stdout;
+    executeCommand(`cd ${process.env.GITHUB_WORKSPACE}`);
+
+    let version = await executeCommand("git tag --sort -v:refname");
+    let hash = await executeCommand("git log --oneline | awk 'NR==1{print $1}'");
     let fileContent = `${version}:${hash}`;
 
     console.log( `Version: ${fileContent}`)
 
-    await shell.exec(`echo ${fileContent} > version`, {silent:true});
+    await executeCommand(`echo ${fileContent} > version`);
 }
 
 run();
