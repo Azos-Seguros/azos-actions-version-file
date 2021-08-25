@@ -1411,7 +1411,7 @@ async function run(){
 
     let version = await executeCommand("git",["tag","--sort","-v:refname"]);
     console.log("version===",version);
-    let hash = await executeCommand("git", ["log","--oneline","|","awk","'NR==1{print $1}'"]);
+    let hash = await executeCommand("git", ["rev-parse","--short","HEAD"]);
     console.log("hash===",hash);
     let fileContent = `${version}:${hash}`;
 
