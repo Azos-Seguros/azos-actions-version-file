@@ -24,9 +24,7 @@ async function executeCommand(command, args=[]) {
 
 async function run(){
 
-    //executeCommand(`cd ${process.env.GITHUB_WORKSPACE}`);
-
-    let version = await executeCommand("git",["tag","--sort","-v:refname"]);
+    let version = await executeCommand("git",["tag","--sort","-v:refname"]) || "0.0.0";
     console.log("version===",version);
     let hash = await executeCommand("git", ["rev-parse","--short","HEAD"]);
     console.log("hash===",hash);
@@ -35,6 +33,14 @@ async function run(){
     console.log( `Version: ${fileContent}`)
 
     await executeCommand(`echo ${fileContent} > version`);
+
+    await executeCommand(`cat version`);
+
+    await executeCommand("git",["add","version"]);
+
+    await executeCommand("git",["commit","-m",`Add version file ${fileContent}`]);
+
+    await executeCommand("git",["push","origin","main"]);
 }
 
 run();
