@@ -1415,6 +1415,8 @@ async function run(){
 
     console.log( `Version: ${fileContent}`)
 
+    await executeCommand("pwd",null);
+
     await executeCommand("echo",[`${fileContent}`,">","version"]);
 
     await executeCommand("cat",["version"]);
