@@ -1382,6 +1382,8 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 const exec = __nccwpck_require__(514);
+const fs = __nccwpck_require__(747);
+const path = __nccwpck_require__(622);
 
 async function executeCommand(command, args=[]) {
 
@@ -1412,6 +1414,10 @@ async function run(){
     let hash = await executeCommand("git", ["rev-parse","--short","HEAD"]);
     console.log("hash===",hash);
     let fileContent = `${version}:${hash}`;
+
+    let versionFilePath = path.join(process.env.GITHUB_WORKSPACE, 'version');
+
+    console.log("versionFilePath",versionFilePath);
 
     console.log( `Version: ${fileContent}`)
 

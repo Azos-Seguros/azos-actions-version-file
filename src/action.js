@@ -1,4 +1,6 @@
 const exec = require('@actions/exec');
+const fs = require('fs');
+const path = require('path');
 
 async function executeCommand(command, args=[]) {
 
@@ -29,6 +31,10 @@ async function run(){
     let hash = await executeCommand("git", ["rev-parse","--short","HEAD"]);
     console.log("hash===",hash);
     let fileContent = `${version}:${hash}`;
+
+    let versionFilePath = path.join(process.env.GITHUB_WORKSPACE, 'version');
+
+    console.log("versionFilePath",versionFilePath);
 
     console.log( `Version: ${fileContent}`)
 
