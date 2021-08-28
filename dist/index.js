@@ -1417,11 +1417,12 @@ async function run(){
 
     fs.writeFileSync(versionFilePath,fileContent);
 
-    await executeCommand("git",["add","version"]);
+    await executeCommand("ls",[process.env.GITHUB_WORKSPACE]);
+   // await executeCommand("git",["add","version"]);
 
-    await executeCommand("git",["commit","-m",`Add version file ${fileContent}`]);
+   // await executeCommand("git",["commit","-m",`Add version file ${fileContent}`]);
 
-    await executeCommand("git",["push","origin","main"]);
+   // await executeCommand("git",["push","origin","main"]);
 }
 
 run();
