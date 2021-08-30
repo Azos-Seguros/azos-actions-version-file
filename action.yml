@@ -7,6 +7,10 @@ inputs:
     description: "Github Token"
     required: true
 
+outputs:
+  version:
+    description: "Version file with version:hash. Version from release tag and hash from last commit"
+
 runs:
   using: "node12"
   main: "dist/index.js"
