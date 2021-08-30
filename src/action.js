@@ -34,8 +34,6 @@ async function run(){
 
     fs.writeFileSync(versionFilePath,fileContent);
 
-    await executeCommand("git",[process.env.GITHUB_WORKSPACE]);
-    
     await executeCommand("git",["commit","-am",`Update version file to version:hash ${fileContent}`]);
 
     await executeCommand("git",["push"]);
