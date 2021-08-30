@@ -6,6 +6,8 @@ The version number cames from release tags and the hash is a short hash from the
 
 # How to config
 
+Create the follow yaml file .github/workflows/version.yml
+
 ```yaml
 name: "Create Version File"
 
