@@ -34,6 +34,10 @@ async function run(){
 
     fs.writeFileSync(versionFilePath,fileContent);
 
+    await executeCommand("git",["config","--global","user.name","AZOS Actions Version File"]);
+
+    await executeCommand("git",["config","--global","user.email","azos.version.action@github.com"]);
+
     await executeCommand("git",["commit","-am",`Update version file to version:hash ${fileContent}`]);
 
     await executeCommand("git",["push"]);
