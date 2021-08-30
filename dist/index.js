@@ -1421,7 +1421,9 @@ async function run(){
 
     await executeCommand("git",["config","--global","user.email","azos.version.action@github.com"]);
 
-    await executeCommand("git",["commit","-am",`Update version file to version:hash ${fileContent}`]);
+    await executeCommand("git",["add","version"]);
+
+    await executeCommand("git",["commit","-m",`Update version file to version:hash ${fileContent}`]);
 
     await executeCommand("git",["push"]);
 }
