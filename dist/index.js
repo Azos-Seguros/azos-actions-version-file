@@ -1409,6 +1409,8 @@ async function executeCommand(command, args=[]) {
 
 async function run(){
 
+    await executeCommand("git",["fetch"]);
+
     let version = await executeCommand("git",["tag","--sort","-v:refname"]);
     let hash = await executeCommand("git", ["rev-parse","--short","HEAD"]);
 
