@@ -1411,12 +1411,12 @@ async function run(){
 
     await executeCommand("git",["fetch"]);
 
-    let version = await executeCommand("git",["tag","--sort","-v:refname"]).trim().replace("\n","");
+    let version = await executeCommand("git",["tag","--sort","-v:refname"]);
     let hash = await executeCommand("git", ["rev-parse","--short","HEAD"]);
 
     version = version || "0.0.0";
 
-    let fileContent = `${version}:${hash}`;
+    let fileContent = `${version}:${hash}`.trim().replace("\n","");
 
     let versionFilePath = path.join(process.env.GITHUB_WORKSPACE, 'version');
 
