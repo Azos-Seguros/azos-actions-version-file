@@ -27,3 +27,13 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+# Build
+
+To build this project run:
+
+```shell
+$ npm run build
+```
+
+This command will run the ncc compiler to bundle all dependencies into a single file.
