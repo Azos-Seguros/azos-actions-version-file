@@ -1412,7 +1412,8 @@ async function run(){
     await executeCommand("git",["fetch"]);
     await executeCommand("git",["pull"]);
 
-    let version = await executeCommand("git",["describe","--tags","$(git rev-list --tags --max-count=1)"]);
+    let tagRef = await executeCommand("git",["rev-list","--tags","--max-count=1"]);
+    let version = await executeCommand("git",["describe","--tags",`${tagRef}`]);
     let hash = await executeCommand("git", ["rev-parse","--short","HEAD"]);
 
     version = version || "0.0.0";
