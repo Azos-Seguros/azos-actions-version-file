@@ -26,8 +26,11 @@ async function executeCommand(command, args=[]) {
 
 async function run(){
 
-    let version = await executeCommand("git",["tag","--sort","-v:refname"]) || "0.0.0";
+    let version = await executeCommand("git",["tag","--sort","-v:refname"]);
     let hash = await executeCommand("git", ["rev-parse","--short","HEAD"]);
+
+    version = version || "0.0.0";
+
     let fileContent = `${version}:${hash}`;
 
     let versionFilePath = path.join(process.env.GITHUB_WORKSPACE, 'version');
