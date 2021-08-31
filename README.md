@@ -1,6 +1,6 @@
 # azos-actions-version-file
 
-Github action to add a simple "version" file following the "version:hash" format.
+Github action to add a simple "version" file with "version:hash" string.
 
 The version number cames from release tags and the hash is a short hash from the last commit.
 
