@@ -1412,7 +1412,7 @@ async function run(){
     await executeCommand("git",["fetch"]);
     await executeCommand("git",["pull"]);
 
-    let version = await executeCommand("git",["for-each-ref","--count=1","--sort='-v:refname'","--format='%(refname:lstrip=2)'"]);
+    let version = await executeCommand("git",["for-each-ref","--count=1","--sort","-v:refname","--format='%(refname:lstrip=2)'"]);
     let hash = await executeCommand("git", ["rev-parse","--short","HEAD"]);
 
     version = version || "0.0.0";
