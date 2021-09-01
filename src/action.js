@@ -34,7 +34,7 @@ async function run(){
 
     version = version || "0.0.0";
 
-    version.replace(/'/g,"");
+    version = version.replace(/'/g,"");
 
     let fileContent = `${version}:${hash}`.trim().replace("\n","");
 
