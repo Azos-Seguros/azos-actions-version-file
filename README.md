@@ -23,7 +23,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Create version file
-        uses: Azos-Seguros/azos-actions-version-file
+        uses: Azos-Seguros/azos-actions-version-file@1.0.5
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
