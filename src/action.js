@@ -34,14 +34,10 @@ async function run(){
 
     version = version || "0.0.0";
 
+    version.replace(/'/g,"");
 
-    let fileContent = `${version}:${hash}`;
+    let fileContent = `${version}:${hash}`.trim().replace("\n","");
 
-    fileContent
-        .trim()
-        .replaceAll("\n","")
-        .replaceAll("'","");
-                            
     let versionFilePath = path.join(process.env.GITHUB_WORKSPACE, 'version');
 
     fs.writeFileSync(versionFilePath,fileContent);
