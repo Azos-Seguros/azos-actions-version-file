@@ -34,6 +34,7 @@ async function run(){
 
     version = version || "0.0.0";
 
+
     let fileContent = `${version}:${hash}`;
 
     fileContent
