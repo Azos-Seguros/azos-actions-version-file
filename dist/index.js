@@ -1417,7 +1417,7 @@ async function run(){
 
     version = version || "0.0.0";
 
-    let fileContent = `${version}:${hash}`.trim().replace("\n","");
+    let fileContent = `${version}:${hash}`.trim().replaceAll("\n","").replaceAll("'","");
 
     let versionFilePath = path.join(process.env.GITHUB_WORKSPACE, 'version');
 
